@@ -1,0 +1,153 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+#taskInput:focus {
+    border-color: #667eea;
+}
+
+#addTaskButton {
+    padding: 12px 18px;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#addTaskButton:hover {
+    background-color: #5368d5;
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f4f5ff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 14px;
+}
+
+#taskList {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.task-item.completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #e8f5e9;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.complete-button,
+.delete-button {
+    border: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+
+.complete-button {
+    background-color: #28a745;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.complete-button:hover {
+    background-color: #218838;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+#emptyMessage {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+    .input-section {
+        flex-direction: column;
+    }
+
+    #addTaskButton {
+        width: 100%;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
