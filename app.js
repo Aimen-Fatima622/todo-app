@@ -6,7 +6,7 @@ const totalTasks = document.getElementById("totalTasks");
 const completedTasks = document.getElementById("completedTasks");
 const emptyMessage = document.getElementById("emptyMessage");
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 addTaskButton.addEventListener("click", addTask);
 
@@ -34,6 +34,7 @@ function addTask() {
 
     taskInput.value = "";
 
+    saveTasks();
     displayTasks();
 }
 
@@ -62,6 +63,8 @@ function displayTasks() {
 
         completeButton.addEventListener("click", function () {
             task.completed = !task.completed;
+
+            saveTasks();
             displayTasks();
         });
 
@@ -74,6 +77,7 @@ function displayTasks() {
                 return item.id !== task.id;
             });
 
+            saveTasks();
             displayTasks();
         });
 
@@ -105,3 +109,9 @@ function updateTaskCounters() {
         emptyMessage.style.display = "none";
     }
 }
+
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+displayTasks();
