@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -7,33 +6,60 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    transition: background 0.3s ease;
 }
 
 .container {
-    background-color: white;
+    background-color: #ffffff;
     width: 100%;
-    max-width: 550px;
+    max-width: 600px;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 10px;
+    color: #0f172a;
+    font-size: 32px;
+    margin-bottom: 5px;
 }
 
 .subtitle {
-    text-align: center;
-    color: #777;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.description {
+    color: #64748b;
     margin-bottom: 25px;
+    font-size: 14px;
+}
+
+#themeButton {
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#themeButton:hover {
+    background-color: #cbd5e1;
 }
 
 .input-section {
@@ -45,19 +71,19 @@ h1 {
 #taskInput {
     flex: 1;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     font-size: 14px;
     outline: none;
 }
 
 #taskInput:focus {
-    border-color: #667eea;
+    border-color: #2563eb;
 }
 
 #addTaskButton {
     padding: 12px 18px;
-    background-color: #667eea;
+    background-color: #2563eb;
     color: white;
     border: none;
     border-radius: 8px;
@@ -66,18 +92,46 @@ h1 {
 }
 
 #addTaskButton:hover {
-    background-color: #5368d5;
+    background-color: #1d4ed8;
 }
 
 .task-info {
     display: flex;
     justify-content: space-between;
-    background-color: #f4f5ff;
+    background-color: #eff6ff;
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 20px;
-    color: #555;
+    color: #334155;
     font-size: 14px;
+}
+
+.progress-section {
+    margin-bottom: 25px;
+}
+
+.progress-heading {
+    display: flex;
+    justify-content: space-between;
+    color: #334155;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background-color: #2563eb;
+    border-radius: 10px;
+    transition: width 0.3s ease;
 }
 
 #taskList {
@@ -88,11 +142,12 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    gap: 10px;
+    background-color: #f8fafc;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 8px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #2563eb;
 }
 
 .task-item.completed {
@@ -104,6 +159,7 @@ h1 {
 .task-buttons {
     display: flex;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 .complete-button,
@@ -116,19 +172,19 @@ h1 {
 }
 
 .complete-button {
-    background-color: #28a745;
+    background-color: #16a34a;
 }
 
 .delete-button {
-    background-color: #dc3545;
+    background-color: #dc2626;
 }
 
 .complete-button:hover {
-    background-color: #218838;
+    background-color: #15803d;
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    background-color: #b91c1c;
 }
 
 #emptyMessage {
@@ -150,4 +206,74 @@ h1 {
     .container {
         padding: 20px;
     }
+
+    .task-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .task-buttons {
+        justify-content: flex-end;
+    }
+}
+
+/* Dark Mode */
+
+body.dark-mode {
+    background: linear-gradient(135deg, #020617, #172554);
+}
+
+body.dark-mode .container {
+    background-color: #1e293b;
+}
+
+body.dark-mode h1 {
+    color: #f8fafc;
+}
+
+body.dark-mode .subtitle,
+body.dark-mode .description {
+    color: #cbd5e1;
+}
+
+body.dark-mode #taskInput {
+    background-color: #334155;
+    color: #ffffff;
+    border-color: #475569;
+}
+
+body.dark-mode #taskInput::placeholder {
+    color: #cbd5e1;
+}
+
+body.dark-mode #themeButton {
+    background-color: #475569;
+}
+
+body.dark-mode .task-info {
+    background-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark-mode .progress-heading {
+    color: #f8fafc;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #475569;
+}
+
+body.dark-mode .task-item {
+    background-color: #334155;
+    color: #f8fafc;
+    border-left-color: #60a5fa;
+}
+
+body.dark-mode .task-item.completed {
+    background-color: #14532d;
+    color: #bbf7d0;
+}
+
+body.dark-mode #emptyMessage {
+    color: #cbd5e1;
 }
